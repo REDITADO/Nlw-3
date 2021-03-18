@@ -1,0 +1,105 @@
+#page-landing {
+    background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%) no-repeat;
+    text-align: center;
+    min-height: 100vh;
+    
+   display: flex;
+  
+  }
+  #container{
+      margin: auto;
+    width:min(90%, 200rem);
+    
+  }
+  
+  
+  .local,
+  h1,
+  .secao p {
+    height: 16vh;
+  }
+  .secao a {
+    width: 8rem;
+    height: 8rem;
+    background: #ffd666;
+    border: none;
+    border-radius: 3rem;
+    
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    transition: padding 500ms, background 500ms;
+    
+    
+  }
+  .secao a:hover{
+   background: cyan;
+   padding: 6%;
+  }
+  #logomarca{
+    animation-delay: 50ms;
+}
+.local{
+    animation-delay: 100ms;
+}
+.main h1{
+    animation-delay: 150ms;
+    font-size: clamp(4rem, 8vw, 8.4rem);
+}
+#p{
+    animation-delay: 200ms;
+}
+#Mapseta{
+    animation-delay: 250ms;
+}
+/* descktop version */
+@media (min-width:760px){
+    #container{
+        padding: 8rem 2rem;
+        
+        background: url("../bg.svg") no-repeat 80% / clamp(30rem, 54vw,56rem) ;
+        background-position:  center  ;
+    
+ }
+    header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .local,
+  h1,
+  .secao p {
+    height: initial;
+    text-align: initial;
+  }
+  .local{
+    text-align: right;
+    font-size: 2.4rem;
+    line-height: 1.5;
+}
+ main h1{
+    
+    margin-right: 20%;
+     font-weight: bolder;
+     line-height: .98;
+     width: min(200px, 80%);
+
+
+     margin: clamp(10%, 9vh, 12%)0 4rem;
+ }
+ .secao p{
+     font-size:2.4rem ;
+     line-height: 1.5;
+     width: clamp(20rem, 20vw,30rem);
+ }
+ .secao{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+ .secao a{
+     margin: initial;
+ }
+  
+}

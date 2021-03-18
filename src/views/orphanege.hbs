@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{orphanege.name}}</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+
+    <link rel="icon" href="/logo-icon.png" />
+    <link rel="stylesheet" href="/css/stylesheet.css" />
+    <link rel="stylesheet" href="/css/page-orphanege.css" />
+    <link rel="stylesheet" href="/css/primaryButton.css">
+    <link rel="stylesheet" href="/css/map.css">
+    <link rel="stylesheet" href="/css/asidebar.css">
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link href="https://fonts.googleapis.com/css2? family = Nunito: wght @ 400; 600; 800 & display = swap"rel="stylesheet"/>
+    
+  </head>
+  <body>
+    <div id="page-orphanege">
+      <aside class="animation-right asider">
+
+        <img src="/map-marker.svg" alt="">
+
+        <footer>
+          <button class="seta" onclick="history.back()"><img src="/arrow-back.svg" alt=""></button>
+        </footer>
+
+      </aside>
+
+      <main class="animation-apariçao with-sidebar">
+        <div class="orphanege-details">
+          <img src="{{orphanege.firstImage}}" alt="{{orphanege.name}}">
+
+          <div class="images">
+            {{#each orphanege.images}}
+            <button onclick="galery(event)" class="active" type="button"><img src="{{this}}" alt="{{orphanege.name}}"></button>
+            {{/each}}
+          </div>
+          <div class="orphanage-detail-content">
+            
+            <h1>{{orphanege.name}}</h1>
+            <p>{{orphanege.about}}</p>
+            <div class="map-container">
+              <div id="mapid"></div>
+              <span data-lat="{{orphanege.lat}}"
+              data-lng="{{orphanege.lng}}"></span>
+              <footer>
+                <a target="_blank"
+                href="http://maps.google.com/mobile?q={{orphanege.lat}},{{orphanege.lng}}&z=15">ver rotas no Google Maps</a>
+              </footer>
+              </div>
+              <hr>
+              <h2>instruçoes para visitas </h2>
+
+              <p>{{orphanege.instructions}}</p>
+
+              <div class="open-details">
+                <div class="hour">
+                  <img src="/clock.svg" alt="horarios">
+                  {{orphanege.horario_de_abertura}}
+                </div>
+                {{#if orphanege.Open}}
+                <div class="open-weekends open">
+                  
+                  <img src="/info.svg" alt="">
+                  Atendemos fim de semana
+                  
+                </div>
+                {{else}}
+                <div class="open-weekends closed">
+                  
+                  <img src="/info-red.svg" alt="">
+                 Não atendemos fim de semana
+              {{/if}}
+              </div>
+              <a href="http://api.whatsapp.com/send?l=pt_BR&phone={{orphanege.whatsapp}}&text= oi, quero conversar sobre visitas no {{orphanege.name}}" target="_blank" class="primary-buttom" id="arrumar" type="button">
+           <img src="/whatsapp.svg" alt="chamar no whatspp"> entrar em contato
+         </a>
+        </div>
+         
+        </div>
+
+      </main>
+        
+        
+
+      </div>
+    </div>
+    <script src="/scripts/page-orphanege.js"></script>
+  </body>
+</html>

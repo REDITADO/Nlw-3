@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Localizações</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+
+    <link rel="icon" href="/logo-icon.png" />
+    <link rel="stylesheet" href="/css/stylesheet.css" />
+    <link rel="stylesheet" href="/css/asidebar.css">
+    <link rel="stylesheet" href="/css/primaryButton.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/map.css">
+    <link rel="stylesheet" href="/css/criar.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link
+      href="https://fonts.googleapis.com/css2? family = Nunito: wght @ 400; 600; 800 & display = swap"
+      rel="stylesheet"
+    />
+    
+  </head>
+  <body>
+    <div id="page-create-orphanege">
+      <aside class="animation-right asider">
+
+        <img src="/map-marker.svg" alt="">
+
+        <footer>
+          <button class="seta" onclick="history.back()"><img src="/arrow-back.svg" alt=""></button>
+        </footer>
+
+      </aside>
+
+      <main class="animation-apariçao with-sidebar">
+        <form action="save-orphanege" method="POST" onsubmit="validet(event)">
+          <fieldset>
+            <legend>dados</legend>
+
+            <div class="map-container">
+              <div id="mapid"></div>
+              <input type="hidden" name="lat">
+              <input type="hidden" name="lng">
+              <footer>
+                <a href="#" id="selecionar-ponto"> clique no mapa para add a localização</a>
+              </footer>
+            </div>
+            <div class="input-block">
+              <label for="name">nome</label>
+              <input type="text" name="name" id="name" required>
+            </div>
+
+            <div class="input-block">
+              <label for="about">sobre  <span>maximo 300 caracteres</span></label>
+              <textarea type="text" name="about" id="about" required></textarea>
+            </div>
+
+            <div class="input-block ">
+              <label for="whatsapp">numero de whatsapp</label>
+              <input type="text" name="whatsapp" id="whatsapp" required>
+            </div>
+
+            <div class="input-block ">
+              <label for="images">foto</label>
+              <div class="images-upload" id="images">
+                <div class="new-upload">
+                  <input name="images" placeholder="cole o linck da foto aqui" type="url" required> 
+                <span onclick="remover(event)" >
+                  <img src="/close.svg" alt="" >
+                </span>
+              </div>
+            </div>
+              <button type="button" id="flut" onclick="addPhotoField()">
+                <img src="/add-file.svg" alt="">
+              </button>
+             
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>visitação</legend>
+            <div class="input-block">
+              <label for="instructions">intruções</label>
+              <textarea type="text" name="instructions" id="instructions" required></textarea>
+            </div>
+            <div class="input-block">
+              <label for="horario_de_abertura">horario de abertura</label>
+              <input type="text" name="horario_de_abertura" id="horario_de_abertura" required>
+            </div>
+            <div class="input-block">
+              <label for="fim_de_semana">aberto no fim de semana?</label>
+              <input type="hidden"id="fim_de_semana" name="fim_de_semana" value="1" required>
+
+              <div class="select-button">
+                <button data-value="1"  
+                onclick="selecionar(event)"  type="button"  
+                class="active">sim</button>
+                <button data-value="0"  
+                  onclick="selecionar(event)"   
+                  type="button">não</button>
+                </div>
+              <button type="submit" class="primary-buttom">confirmar</button>
+            </div>
+          </fieldset>
+        </form>
+      </main>
+        
+        
+
+      </div>
+    </div>
+    <script src="/scripts/criar.js"></script>
+  </body>
+</html>
